@@ -1,0 +1,57 @@
+﻿@model IEnumerable<mutfakdapper.Models.FastFoodModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Ekle", "EY", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FastFoodAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FastFoodMenu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatatesTercihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CikarilanMalzeme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EkstraMalzeme)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FastFoodAdi)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FastFoodMenu)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.PatatesTercihi)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CikarilanMalzeme)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EkstraMalzeme)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "EY", new {  id=item.FastFoodNo}, new { @class = "btn btn-warning" }) |
+        @Html.ActionLink("Delete", "Delete", new {  id=item.FastFoodNo }, new { @class = "btn btn-warning" })
+    </td>
+</tr>
+}
+
+</table>

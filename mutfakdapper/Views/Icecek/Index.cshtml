@@ -1,0 +1,39 @@
+﻿@model IEnumerable<mutfakdapper.Models.IcecekModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Ekle", "EY", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IcecekAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adet)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.IcecekAdi)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Adet)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "EY", new { id=item.IcecekNo  }, new { @class = "btn btn-warning" }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.IcecekNo  }, new { @class = "btn btn-warning" })
+    </td>
+</tr>
+}
+
+</table>
